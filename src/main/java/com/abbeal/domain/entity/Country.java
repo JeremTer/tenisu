@@ -8,6 +8,11 @@ public class Country {
 
     private String picture;
 
+    private int winsNumber = 0;
+    private int defeatsNumber = 0;
+
+    private double winRatio;
+
     public Country(CountryId id) {
         this.id = id;
     }
@@ -40,5 +45,29 @@ public class Country {
 
     public String getPicture() {
         return picture;
+    }
+
+    public void incrementDefeatsNumber(int number) {
+        defeatsNumber += number;
+    }
+
+    public void incrementWinsNumber(int number) {
+        winsNumber += number;
+    }
+
+    public void calculateWinRatio() {
+        winRatio = (double) winsNumber / (winsNumber + defeatsNumber);
+    }
+
+    public double getWinRatio() {
+        return winRatio;
+    }
+
+    public int getWinsNumber() {
+        return winsNumber;
+    }
+
+    public int getDefeatsNumber() {
+        return defeatsNumber;
     }
 }

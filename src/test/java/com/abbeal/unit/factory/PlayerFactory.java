@@ -13,7 +13,7 @@ public class PlayerFactory {
         player2.setFirstname("cecile");
         player2.setLastname("lastname");
         player2.setShortname("ce");
-        player2.setSex("Unknow");
+        player2.setSex("F");
 
 
         final var usaCountryId = new CountryId("USA");
@@ -52,5 +52,54 @@ public class PlayerFactory {
         player1.setAge(22);
         return player1;
     }
+
+    public static Player getPlayer3() {
+
+        final var playerId1 = new PlayerId(3L);
+        final var player1 = new Player(playerId1);
+        player1.setFirstname("bernard");
+        player1.setLastname("lastname");
+        player1.setShortname("b");
+        player1.setSex("M");
+
+
+        final var frCountryId = new CountryId("FR");
+        final var frCountry = new Country(frCountryId);
+        frCountry.setPicture("countryPicture");
+
+        player1.setCountry(frCountry);
+        player1.setPicture("picture");
+        player1.setRank(9);
+        player1.setPoints(33333);
+        player1.setWeight(74000);
+        player1.setHeight(185);
+        player1.setAge(82);
+        return player1;
+    }
+
+    public static Player getPlayer4() {
+
+        final var playerId1 = new PlayerId(4L);
+        final var player1 = new Player(playerId1);
+        player1.setFirstname("benjamin");
+        player1.setLastname("lastname");
+        player1.setShortname("b");
+        player1.setSex("Not provided");
+
+
+        final var itCountryId = new CountryId("ITA");
+        final var itCountry = new Country(itCountryId);
+        itCountry.setPicture("countryPicture");
+
+        player1.setCountry(itCountry);
+        player1.setPicture("picture");
+        player1.setRank(30);
+        player1.setPoints(444);
+        player1.setWeight(74000);
+        player1.setHeight(175);
+        player1.setAge(11);
+        return player1;
+    }
+
 
 }
