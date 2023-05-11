@@ -1,6 +1,7 @@
 package com.abbeal.infra.repository;
 
 import com.abbeal.domain.entity.Player;
+import com.abbeal.domain.entity.PlayerId;
 import com.abbeal.domain.repository.PlayerRepository;
 import com.abbeal.infra.repository.mapper.PlayerJsonMapper;
 import com.abbeal.infra.repository.parser.PlayerJsonParser;
@@ -23,6 +24,11 @@ public class PlayerJsonRepository implements PlayerRepository {
     public List<Player> getAllPlayers() {
         final var playerJsons = playerJsonParser.parseToPlayerJson();
         return playerJsonMapper.mapPlayersJsonToPlayers(playerJsons);
+    }
+
+    @Override
+    public Player getPlayer(PlayerId id) {
+        return null;
     }
 
 

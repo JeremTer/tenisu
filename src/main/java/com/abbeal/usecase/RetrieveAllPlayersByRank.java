@@ -19,7 +19,6 @@ public class RetrieveAllPlayersByRank {
 
     public List<Player> execute() {
         final var players = playerRepository.getAllPlayers();
-
         return sortPlayersByRanking(players);
     }
 
