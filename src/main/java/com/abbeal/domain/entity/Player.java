@@ -76,6 +76,54 @@ public class Player {
         this.rank = rank;
     }
 
+    public PlayerId getId() {
+        return id;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public String getShortname() {
+        return shortname;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public List<Game> getGames() {
+        return games;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

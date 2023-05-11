@@ -28,4 +28,12 @@ public class Country {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+    public CountryId getId() {
+        return id;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
 }

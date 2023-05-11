@@ -2,11 +2,13 @@ package com.abbeal.usecase;
 
 import com.abbeal.domain.entity.Player;
 import com.abbeal.domain.repository.PlayerRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class RetrieveAllPlayersByRank {
 
     private final PlayerRepository playerRepository;
