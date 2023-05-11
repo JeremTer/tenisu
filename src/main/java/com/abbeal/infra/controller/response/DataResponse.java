@@ -1,4 +1,6 @@
 package com.abbeal.infra.controller.response;
 
-public record DataResponse(int rank, int points, int weight, int height, int age, int[] last) {
+import java.util.List;
+
+public record DataResponse(int rank, int points, int weight, int height, int age, List<Integer> last) {
 }

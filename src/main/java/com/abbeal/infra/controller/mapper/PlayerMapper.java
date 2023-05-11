@@ -41,7 +41,8 @@ public class PlayerMapper {
                 player.getWeight(),
                 player.getHeight(),
                 player.getAge(),
-                mapToLastGameStates(player.getGames(), player.getId(), 5)
+                player.getLastGameStates()
+                //mapToLastGameStates(player.getGames(), player.getId(), 5)
         );
     }
 

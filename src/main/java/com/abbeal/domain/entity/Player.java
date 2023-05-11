@@ -20,8 +20,26 @@ public class Player {
     private int age;
     private List<Game> games;
 
+    private List<Integer> lastGameStates;
+
     public Player(PlayerId id) {
         this.id = id;
+    }
+
+    public Player(PlayerId id, String firstname, String lastname, String shortname, String sex, Country country, String picture, int rank, int points, int weight, int height, int age, List<Integer> lastGameStates) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.shortname = shortname;
+        this.sex = sex;
+        this.country = country;
+        this.picture = picture;
+        this.rank = rank;
+        this.points = points;
+        this.weight = weight;
+        this.height = height;
+        this.age = age;
+        this.lastGameStates = lastGameStates;
     }
 
     public void setFirstname(String firstname) {
@@ -124,6 +142,14 @@ public class Player {
         return games;
     }
 
+    public List<Integer> getLastGameStates() {
+        return lastGameStates;
+    }
+
+    public void setLastGameStates(List<Integer> lastGameStates) {
+        this.lastGameStates = lastGameStates;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -136,4 +162,6 @@ public class Player {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+
 }

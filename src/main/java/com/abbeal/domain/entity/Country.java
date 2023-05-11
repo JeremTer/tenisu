@@ -12,6 +12,11 @@ public class Country {
         this.id = id;
     }
 
+    public Country(CountryId id, String picture) {
+        this.id = id;
+        this.picture = picture;
+    }
+
     public void setPicture(String picture) {
         this.picture = picture;
     }

@@ -1,4 +1,4 @@
-package com.abbeal.unit.infra.mapper;
+package com.abbeal.unit.infra.controller.mapper;
 
 import com.abbeal.domain.entity.Game;
 import com.abbeal.domain.entity.Player;
