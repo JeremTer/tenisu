@@ -1,5 +1,6 @@
 package com.abbeal.infra.controller;
 
+import com.abbeal.infra.repository.parser.JsonParseErrorException;
 import com.abbeal.usecase.exceptions.UnknownPlayerException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -13,6 +14,12 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler({UnknownPlayerException.class})
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
     public String handleUnknownPlayerException(Exception exception) {
+        return exception.getMessage();
+    }
+
+    @ExceptionHandler({JsonParseErrorException.class})
+    @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+    public String handleJsonParseErrorException(Exception exception) {
         return exception.getMessage();
     }
 }

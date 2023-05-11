@@ -17,8 +17,7 @@ public class PlayerJsonParser {
         try {
             return objectMapper.readValue(new File("headtohead.json"), Players.class).getPlayers();
         } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
+            throw new JsonParseErrorException();
         }
     }
 }
