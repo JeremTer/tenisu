@@ -18,11 +18,11 @@ public class PlayerMapper {
 
     public List<PlayerResponse> mapToPlayersResponse(List<Player> players) {
         return players.stream()
-                .map(this::mapToPlayerResponse)
+                .map(this::mapToOnePlayerResponse)
                 .collect(Collectors.toList());
     }
 
-    private PlayerResponse mapToPlayerResponse(Player player) {
+    public PlayerResponse mapToOnePlayerResponse(Player player) {
         return new PlayerResponse(
                 player.getId().id(),
                 player.getFirstname(),

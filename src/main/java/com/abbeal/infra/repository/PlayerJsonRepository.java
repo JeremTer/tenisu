@@ -5,9 +5,11 @@ import com.abbeal.domain.entity.PlayerId;
 import com.abbeal.domain.repository.PlayerRepository;
 import com.abbeal.infra.repository.mapper.PlayerJsonMapper;
 import com.abbeal.infra.repository.parser.PlayerJsonParser;
+import com.abbeal.usecase.exceptions.UnknownPlayerException;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Objects;
 
 @Repository
 public class PlayerJsonRepository implements PlayerRepository {
@@ -28,7 +30,13 @@ public class PlayerJsonRepository implements PlayerRepository {
 
     @Override
     public Player getPlayer(PlayerId id) {
-        return null;
+        final var playerJsons = playerJsonParser.parseToPlayerJson();
+        final var playerJson = playerJsons.stream()
+                .filter(player -> Objects.equals(player.getId(), id.id()))
+                .findFirst()
+                .orElseThrow(UnknownPlayerException::new);
+
+        return playerJsonMapper.mapOnePlayerJsonToPlayer(playerJson);
     }
 
 

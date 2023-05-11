@@ -16,7 +16,7 @@ public class PlayerJsonMapper {
                 .collect(Collectors.toList());
     }
 
-    private Player mapOnePlayerJsonToPlayer(PlayerJson playerJson) {
+    public Player mapOnePlayerJsonToPlayer(PlayerJson playerJson) {
         final var playerJsonData = playerJson.getData();
         final var player = new Player(
                 new PlayerId(playerJson.getId()),
