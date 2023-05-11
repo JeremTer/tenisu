@@ -1,6 +1,8 @@
 package com.abbeal.domain.entity;
 
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 import java.util.Objects;
 
@@ -15,18 +17,20 @@ public class Player {
     private String picture;
     private int rank;
     private int points;
-    private int weight;
-    private int height;
+    private int weightInGram;
+    private int heightInCentimeter;
     private int age;
     private List<Game> games;
 
     private List<Integer> lastGameStates;
 
+    private double bodyMassIndex;
+
     public Player(PlayerId id) {
         this.id = id;
     }
 
-    public Player(PlayerId id, String firstname, String lastname, String shortname, String sex, Country country, String picture, int rank, int points, int weight, int height, int age, List<Integer> lastGameStates) {
+    public Player(PlayerId id, String firstname, String lastname, String shortname, String sex, Country country, String picture, int rank, int points, int weight, int heightInCentimeter, int age, List<Integer> lastGameStates) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -36,8 +40,8 @@ public class Player {
         this.picture = picture;
         this.rank = rank;
         this.points = points;
-        this.weight = weight;
-        this.height = height;
+        this.weightInGram = weight;
+        this.heightInCentimeter = heightInCentimeter;
         this.age = age;
         this.lastGameStates = lastGameStates;
     }
@@ -70,12 +74,12 @@ public class Player {
         this.points = points;
     }
 
-    public void setWeight(int weight) {
-        this.weight = weight;
+    public int getWeight() {
+        return weightInGram;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
+    public void setWeight(int weight) {
+        this.weightInGram = weight;
     }
 
     public void setAge(int age) {
@@ -126,12 +130,12 @@ public class Player {
         return points;
     }
 
-    public int getWeight() {
-        return weight;
+    public int getHeightInCentimeter() {
+        return heightInCentimeter;
     }
 
-    public int getHeight() {
-        return height;
+    public void setHeightInCentimeter(int heightInCentimeter) {
+        this.heightInCentimeter = heightInCentimeter;
     }
 
     public int getAge() {
@@ -163,5 +167,14 @@ public class Player {
         return Objects.hash(id);
     }
 
+    public void calculateBodyMassIndex() {
+        final double heightInMeter = (double) heightInCentimeter / 100;
+        final double weightInKg = (double) weightInGram / 1000;
+        final var value = weightInKg / (heightInMeter * heightInMeter);
+        bodyMassIndex = new BigDecimal(value).setScale(2, RoundingMode.HALF_UP).doubleValue();
+    }
 
+    public double getBodyMassIndex() {
+        return bodyMassIndex;
+    }
 }

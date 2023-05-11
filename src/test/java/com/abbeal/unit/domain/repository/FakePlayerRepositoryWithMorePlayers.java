@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class FakePlayerRepositoryForFindingCountry implements PlayerRepository {
+public class FakePlayerRepositoryWithMorePlayers implements PlayerRepository {
     @Override
     public List<Player> getAllPlayers() {
         final Player player1 = PlayerFactory.getPlayer1();

@@ -7,7 +7,7 @@ import com.abbeal.domain.entity.PlayerId;
 
 public class PlayerFactory {
 
-    public static Player getPlayer2() {
+    public static Player getPlayer2() { // IMC 74/(1,75*1,75) = 24,16
         final var playerId2 = new PlayerId(2L);
         final var player2 = new Player(playerId2);
         player2.setFirstname("cecile");
@@ -25,12 +25,12 @@ public class PlayerFactory {
         player2.setRank(1);
         player2.setPoints(1000000);
         player2.setWeight(74000);
-        player2.setHeight(175);
+        player2.setHeightInCentimeter(175);
         player2.setAge(32);
         return player2;
     }
 
-    public static Player getPlayer1() {
+    public static Player getPlayer1() { //IMC 74/(1,85*1,85) = 21,62
         final var playerId1 = new PlayerId(1L);
         final var player1 = new Player(playerId1);
         player1.setFirstname("roger");
@@ -48,7 +48,7 @@ public class PlayerFactory {
         player1.setRank(3);
         player1.setPoints(33333);
         player1.setWeight(74000);
-        player1.setHeight(185);
+        player1.setHeightInCentimeter(185);
         player1.setAge(22);
         return player1;
     }
@@ -72,7 +72,7 @@ public class PlayerFactory {
         player1.setRank(9);
         player1.setPoints(33333);
         player1.setWeight(74000);
-        player1.setHeight(185);
+        player1.setHeightInCentimeter(185);
         player1.setAge(82);
         return player1;
     }
@@ -96,10 +96,9 @@ public class PlayerFactory {
         player1.setRank(30);
         player1.setPoints(444);
         player1.setWeight(74000);
-        player1.setHeight(175);
+        player1.setHeightInCentimeter(175);
         player1.setAge(11);
         return player1;
     }
-
 
 }

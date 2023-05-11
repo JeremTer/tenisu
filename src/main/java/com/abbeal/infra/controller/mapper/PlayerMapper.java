@@ -39,7 +39,7 @@ public class PlayerMapper {
         return new DataResponse(player.getRank(),
                 player.getPoints(),
                 player.getWeight(),
-                player.getHeight(),
+                player.getHeightInCentimeter(),
                 player.getAge(),
                 player.getLastGameStates()
         );

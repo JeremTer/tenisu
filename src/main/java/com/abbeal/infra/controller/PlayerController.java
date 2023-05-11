@@ -2,6 +2,7 @@ package com.abbeal.infra.controller;
 
 import com.abbeal.infra.controller.mapper.PlayerMapper;
 import com.abbeal.infra.controller.response.PlayerResponse;
+import com.abbeal.usecase.FindAveragePlayerBMI;
 import com.abbeal.usecase.RetrieveAllPlayersByRank;
 import com.abbeal.usecase.RetrieveOnePlayerInformations;
 import org.springframework.http.ResponseEntity;
@@ -19,11 +20,13 @@ public class PlayerController {
     private final RetrieveAllPlayersByRank retrieveAllPlayersByRank;
     private final PlayerMapper playerMapper;
     private final RetrieveOnePlayerInformations retrieveOnePlayerInformations;
+    private final FindAveragePlayerBMI findAveragePlayerBMI;
 
-    public PlayerController(RetrieveAllPlayersByRank retrieveAllPlayersByRank, PlayerMapper playerMapper, RetrieveOnePlayerInformations retrieveOnePlayerInformations) {
+    public PlayerController(RetrieveAllPlayersByRank retrieveAllPlayersByRank, PlayerMapper playerMapper, RetrieveOnePlayerInformations retrieveOnePlayerInformations, FindAveragePlayerBMI findAveragePlayerBMI) {
         this.retrieveAllPlayersByRank = retrieveAllPlayersByRank;
         this.playerMapper = playerMapper;
         this.retrieveOnePlayerInformations = retrieveOnePlayerInformations;
+        this.findAveragePlayerBMI = findAveragePlayerBMI;
     }
 
     @GetMapping("")
@@ -37,5 +40,10 @@ public class PlayerController {
     public ResponseEntity<PlayerResponse> getOnePlayerInformations(@PathVariable Long id) {
         final var player = retrieveOnePlayerInformations.execute(id);
         return ResponseEntity.ok(playerMapper.mapToOnePlayerResponse(player));
+    }
+
+    @GetMapping("/average-bmi")
+    public ResponseEntity<Double> getAverageBodyMassIndex() {
+        return ResponseEntity.ok(findAveragePlayerBMI.execute());
     }
 }

@@ -3,7 +3,7 @@ package com.abbeal.unit.usecase;
 import com.abbeal.domain.entity.Country;
 import com.abbeal.domain.entity.CountryId;
 import com.abbeal.domain.entity.Player;
-import com.abbeal.unit.domain.repository.FakePlayerRepositoryForFindingCountry;
+import com.abbeal.unit.domain.repository.FakePlayerRepositoryWithMorePlayers;
 import com.abbeal.unit.factory.PlayerFactory;
 import com.abbeal.usecase.FindCountryWithHighestWinRatio;
 import org.assertj.core.api.Assertions;
@@ -21,7 +21,7 @@ public class FindCountryWithHighestWinRatioTest {
 
     @BeforeEach
     void setUp() {
-        final var fakePlayerRepository = new FakePlayerRepositoryForFindingCountry();
+        final var fakePlayerRepository = new FakePlayerRepositoryWithMorePlayers();
         sut = new FindCountryWithHighestWinRatio(fakePlayerRepository);
     }
 
